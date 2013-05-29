@@ -58,7 +58,7 @@ public class FirstPresenter extends
 			@Override
 			public void onClick(ClickEvent event) {
 				// TODO Auto-generated method stub
-				PlaceRequest request = new PlaceRequest(NameTokens.first);
+				PlaceRequest request = new PlaceRequest(NameTokens.second).with("name", getView().getFirstbox().getText());
 				placemanager.revealPlace(request);
 			}
 		});

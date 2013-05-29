@@ -25,13 +25,13 @@ public class SecondView extends ViewImpl implements SecondPresenter.MyView {
 		return widget;
 	}
 	@UiField Hyperlink hipervinculo;
-	@UiField TextBox secondtext;
+	@UiField TextBox secondtext1;
 	public Hyperlink getHipervinculo() {
 		return hipervinculo;
 	}
 
 	public TextBox getSecondtext() {
-		return secondtext;
+		return secondtext1;
 	}
 	
 	
