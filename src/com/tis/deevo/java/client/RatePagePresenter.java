@@ -6,6 +6,7 @@ import com.google.inject.Inject;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.EventBus;
+//import com.google.web.bindery.event.shared.EventBus;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 
@@ -18,9 +19,12 @@ public class RatePagePresenter extends
 		public Button getBotonno() ;
 	}
 
+	private EventBus eventBus;
 	@Inject
-	public RatePagePresenter(final EventBus eventBus, final MyView view) {
+	public RatePagePresenter(final com.google.gwt.event.shared.EventBus eventBus, final MyView view) {
 		super(eventBus, view);
+		
+		this.eventBus = eventBus;
 	}
 
 	@Inject WhyNotPresenter whyNotPresenter;
@@ -36,12 +40,14 @@ public class RatePagePresenter extends
 			}
 		});
 		
-getView().getBotonno().addClickHandler(new ClickHandler() {
+		getView().getBotonno().addClickHandler(new ClickHandler() {
 			
 			@Override
 			public void onClick(ClickEvent event) {
 				// TODO Auto-generated method stub
 				//Window.alert("fue pe");
+				UserNotHappyEvent userNotHappyEvent = new UserNotHappyEvent();
+				RatePagePresenter.this.eventBus.fireEvent(userNotHappyEvent);
 				addToPopupSlot(whyNotPresenter);
 			}
 		});

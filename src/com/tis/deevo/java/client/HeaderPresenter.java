@@ -9,12 +9,25 @@ import com.gwtplatform.mvp.client.proxy.RevealContentHandler;
 import com.google.inject.Inject;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.event.shared.GwtEvent.Type;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.Label;
 import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
+import com.tis.deevo.java.client.UserNotHappyEvent.UserNotHappyHandler;
 
 public class HeaderPresenter extends
 		Presenter<HeaderPresenter.MyView, HeaderPresenter.MyProxy> {
-
+	
+	private final UserNotHappyHandler notHappyHandler = new UserNotHappyHandler() {
+		
+		@Override
+		public void onUserNotHappy(UserNotHappyEvent event) {
+			// TODO Auto-generated method stub
+			//Window.alert("se dispara");
+			getView().getLabelfeliz().setText("");
+		}
+	};
 	public interface MyView extends View {
+		public Label getLabelfeliz();
 	}
 
 	@ProxyCodeSplit
@@ -38,6 +51,7 @@ public class HeaderPresenter extends
 	@Override
 	protected void onBind() {
 		super.onBind();
+		registerHandler(getEventBus().addHandler(UserNotHappyEvent.getType(), notHappyHandler));
 	}
 
 	@Override

@@ -8,6 +8,8 @@
 
 	<g:HTMLPanel ui:field="contentpanel" styleName="header">
 		<r1> DEEVO Place</r1>
+		<g:Label  ui:field="labelfeliz"  text="Bienvenido" width="131px"/>
 		<hr/>
+		
 	</g:HTMLPanel>
 </ui:UiBinder>

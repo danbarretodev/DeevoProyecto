@@ -55,6 +55,7 @@ public class FirstPresenter extends
 	@Override
 	protected void onBind() {
 		super.onBind();
+		
 	}
 
 	@Override

@@ -2,11 +2,11 @@ package com.tis.deevo.java.client;
 
 import com.gwtplatform.mvp.client.ViewImpl;
 import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Label;
 
 public class HeaderView extends ViewImpl implements HeaderPresenter.MyView {
 
@@ -25,6 +25,7 @@ public class HeaderView extends ViewImpl implements HeaderPresenter.MyView {
 		return widget;
 	}
 	@UiField HTMLPanel contentpanel;
+	@UiField Label labelfeliz;
 	
 	@Override
 	public void setInSlot(Object slot, Widget content) {
@@ -38,5 +39,15 @@ public class HeaderView extends ViewImpl implements HeaderPresenter.MyView {
 			super.setInSlot(slot, content);
 		}
 	}
+
+	public HTMLPanel getContentpanel() {
+		return contentpanel;
+	}
+
+	public Label getLabelfeliz() {
+		return labelfeliz;
+	}
+	
+	
 	
 }
