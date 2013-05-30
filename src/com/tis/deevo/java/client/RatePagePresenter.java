@@ -23,6 +23,7 @@ public class RatePagePresenter extends
 		super(eventBus, view);
 	}
 
+	@Inject WhyNotPresenter whyNotPresenter;
 	@Override
 	protected void onBind() {
 		super.onBind();
@@ -40,7 +41,8 @@ getView().getBotonno().addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
 				// TODO Auto-generated method stub
-				Window.alert("fue pe");
+				//Window.alert("fue pe");
+				addToPopupSlot(whyNotPresenter);
 			}
 		});
 	}

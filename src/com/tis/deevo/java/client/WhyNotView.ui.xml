@@ -1,0 +1,16 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'
+	ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
+	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
+	ui:generateLocales='default'>
+
+	<g:PopupPanel height="200" modal="true" autoHideEnabled="true">
+		<g:HTMLPanel width="198px" height="151px">
+			<B> No me cierres </B>
+			<g:Button width="68px" ui:field="okbu">OK..</g:Button>
+			<g:TextArea height="85px"/>
+		</g:HTMLPanel>
+	</g:PopupPanel>
+</ui:UiBinder>

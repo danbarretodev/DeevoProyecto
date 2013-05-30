@@ -15,6 +15,8 @@ import com.tis.deevo.java.client.ThirdPresenter;
 import com.tis.deevo.java.client.ThirdView;
 import com.tis.deevo.java.client.RatePagePresenter;
 import com.tis.deevo.java.client.RatePageView;
+import com.tis.deevo.java.client.WhyNotPresenter;
+import com.tis.deevo.java.client.WhyNotView;
 
 
 public class ClientModule extends AbstractPresenterModule {
@@ -42,5 +44,8 @@ public class ClientModule extends AbstractPresenterModule {
 
 		bindPresenterWidget(RatePagePresenter.class,
 				RatePagePresenter.MyView.class, RatePageView.class);
+
+		bindPresenterWidget(WhyNotPresenter.class,
+				WhyNotPresenter.MyView.class, WhyNotView.class);
 	}
 }
