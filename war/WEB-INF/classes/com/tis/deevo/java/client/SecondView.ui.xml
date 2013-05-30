@@ -9,5 +9,6 @@
 	<g:HTMLPanel>
 		<g:TextBox ui:field="secondtext1"/>
 		<g:Hyperlink text="New Hyperlink" targetHistoryToken="first" ui:field="hipervinculo"/>
+		<g:HTMLPanel ui:field="listpanel"/>
 	</g:HTMLPanel>
 </ui:UiBinder>

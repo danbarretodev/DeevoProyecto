@@ -1,5 +1,7 @@
 package com.tis.deevo.java.client;
 
+import javax.print.attribute.standard.PageRanges;
+
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
@@ -8,6 +10,7 @@ import com.tis.deevo.java.client.place.NameTokens;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
 import com.google.inject.Inject;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -19,7 +22,9 @@ import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
 
 public class FirstPresenter extends
 		Presenter<FirstPresenter.MyView, FirstPresenter.MyProxy> {
-
+	
+	public static final Object SLOT_rate = new Object();
+	
 	public interface MyView extends View {
 		public Button getFirstboton() ;
 		public TextBox getFirstbox();
@@ -39,10 +44,13 @@ public class FirstPresenter extends
 
 	@Override
 	protected void revealInParent() {
-		RevealRootContentEvent.fire(this, this);
+		RevealContentEvent.fire(this, HeaderPresenter.SLOT_content ,this);
+		//RevealRootContentEvent.fire(this, this);
 	}
 	
 	@Inject PlaceManager placemanager;
+	
+	@Inject RatePagePresenter ratepagepresenter;
 	
 	@Override
 	protected void onBind() {
@@ -52,6 +60,8 @@ public class FirstPresenter extends
 	@Override
 	protected void onReset() {
 		super.onReset();
+		
+		setInSlot(SLOT_rate, ratepagepresenter);
 		getView().getFirstbox().setText("First Text");
 		getView().getFirstboton().addClickHandler(new ClickHandler() {
 			

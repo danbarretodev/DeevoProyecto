@@ -9,13 +9,16 @@
 	<g:HTMLPanel>
 		<g:AbsolutePanel height="282px">
 			<g:at left="21" top="10">
-				<g:Button width="93px" ui:field="firstboton"/>
+				<g:Button width="93px" ui:field="firstboton" text="click pe"/>
 			</g:at>
 			<g:at left="187" top="46">
 				<g:TextBox ui:field="firstbox"/>
 			</g:at>
 			<g:at left="21" top="52">
 				<g:Label width="138px" height="22px" ui:field="firstLabel"/>
+			</g:at>
+			<g:at left="33" top="109">
+				<g:HTMLPanel width="348px" height="100px" ui:field="ratepanel"/>
 			</g:at>
 		</g:AbsolutePanel>
 	</g:HTMLPanel>
