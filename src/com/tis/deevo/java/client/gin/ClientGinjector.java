@@ -10,7 +10,10 @@ import com.google.gwt.inject.client.AsyncProvider;
 import com.tis.deevo.java.client.FirstPresenter;
 import com.tis.deevo.java.client.SecondPresenter;
 import com.tis.deevo.java.client.HeaderPresenter;
+import com.tis.deevo.java.client.TestGateKeeper;
 import com.tis.deevo.java.client.ThirdPresenter;
+import com.tis.deevo.java.client.ErrorPresenter;
+import com.tis.deevo.java.client.LoginPresenter;
 
 
 @GinModules({ DispatchAsyncModule.class, ClientModule.class })
@@ -27,5 +30,11 @@ public interface ClientGinjector extends Ginjector {
 	AsyncProvider<HeaderPresenter> getHeaderPresenter();
 
 	AsyncProvider<ThirdPresenter> getThirdPresenter();
+
+	AsyncProvider<ErrorPresenter> getErrorPresenter();
+	
+	TestGateKeeper getTestGateKeeper();
+
+	AsyncProvider<LoginPresenter> getLoginPresenter();
 
 }

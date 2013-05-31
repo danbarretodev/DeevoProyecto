@@ -6,10 +6,9 @@
 	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
 	ui:generateLocales='default'>
 
-	<g:HTMLPanel ui:field="contentpanel" styleName="header">
-		<r1> DEEVO Place</r1>
-		<g:Label  ui:field="labelfeliz"  text="Bienvenido" width="79px"/>
-		<hr/>
-		
+	<g:HTMLPanel>
+	Debe Logearse
+		<g:Button width="53px"/>
+		<g:PasswordTextBox/>
 	</g:HTMLPanel>
 </ui:UiBinder>

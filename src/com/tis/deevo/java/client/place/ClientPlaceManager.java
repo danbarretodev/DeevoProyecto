@@ -23,4 +23,20 @@ public class ClientPlaceManager extends PlaceManagerImpl {
 	public void revealDefaultPlace() {
 		revealPlace(defaultPlaceRequest, false);
 	}
+	
+	@Override
+	public void revealErrorPlace(String invalidHistoryToken) {
+		// TODO Auto-generated method stub
+		//super.revealErrorPlace(invalidHistoryToken);
+		PlaceRequest request = new PlaceRequest(NameTokens.error);
+		revealPlace(request,false);
+	} 
+	
+	@Override
+	public void revealUnauthorizedPlace(String unauthorizedHistoryToken) {
+		// TODO Auto-generated method stub
+		PlaceRequest request = new PlaceRequest(NameTokens.login);
+		revealPlace(request);
+		//super.revealUnauthorizedPlace(unauthorizedHistoryToken);
+	}
 }

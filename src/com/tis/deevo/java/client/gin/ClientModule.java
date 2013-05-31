@@ -17,6 +17,10 @@ import com.tis.deevo.java.client.RatePagePresenter;
 import com.tis.deevo.java.client.RatePageView;
 import com.tis.deevo.java.client.WhyNotPresenter;
 import com.tis.deevo.java.client.WhyNotView;
+import com.tis.deevo.java.client.ErrorPresenter;
+import com.tis.deevo.java.client.ErrorView;
+import com.tis.deevo.java.client.LoginPresenter;
+import com.tis.deevo.java.client.LoginView;
 
 
 public class ClientModule extends AbstractPresenterModule {
@@ -47,5 +51,11 @@ public class ClientModule extends AbstractPresenterModule {
 
 		bindPresenterWidget(WhyNotPresenter.class,
 				WhyNotPresenter.MyView.class, WhyNotView.class);
+
+		bindPresenter(ErrorPresenter.class, ErrorPresenter.MyView.class,
+				ErrorView.class, ErrorPresenter.MyProxy.class);
+
+		bindPresenter(LoginPresenter.class, LoginPresenter.MyView.class,
+				LoginView.class, LoginPresenter.MyProxy.class);
 	}
 }

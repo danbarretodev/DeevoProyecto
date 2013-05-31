@@ -33,6 +33,7 @@ public class HeaderView extends ViewImpl implements HeaderPresenter.MyView {
 		if(slot == HeaderPresenter.SLOT_content){
 			contentpanel.clear();
 			if(content != null){
+				contentpanel.add(labelfeliz);
 				contentpanel.add(content);
 			}
 		}else{
