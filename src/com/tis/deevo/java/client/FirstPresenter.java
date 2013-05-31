@@ -2,6 +2,7 @@ package com.tis.deevo.java.client;
 
 import javax.print.attribute.standard.PageRanges;
 
+import com.gwtplatform.dispatch.shared.DispatchAsync;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
@@ -12,9 +13,11 @@ import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
 import com.google.inject.Inject;
+import com.google.gwt.core.client.Callback;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
@@ -51,6 +54,7 @@ public class FirstPresenter extends
 	@Inject PlaceManager placemanager;
 	
 	@Inject RatePagePresenter ratepagepresenter;
+	@Inject DispatchAsync dispatchAsync;
 	
 	@Override
 	protected void onBind() {
@@ -69,9 +73,28 @@ public class FirstPresenter extends
 			@Override
 			public void onClick(ClickEvent event) {
 				// TODO Auto-generated method stub
-				PlaceRequest request = new PlaceRequest(NameTokens.second).with("name", getView().getFirstbox().getText());
-				placemanager.revealPlace(request);
+				/*PlaceRequest request = new PlaceRequest(NameTokens.second).with("name", getView().getFirstbox().getText());
+				placemanager.revealPlace(request);*/
+				
+				GetFirst action = new GetFirst(getView().getFirstbox().getText());
+				dispatchAsync.execute(action, getCallback);
 			}
 		});
 	}
+	private AsyncCallback<GetFirstResult> getCallback = new AsyncCallback<GetFirstResult>() {
+
+		@Override
+		public void onFailure(Throwable caught) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void onSuccess(GetFirstResult result) {
+			// TODO Auto-generated method stub
+			PlaceRequest request = new PlaceRequest(NameTokens.second).with("name", result.getText());
+			placemanager.revealPlace(request);
+			
+		}
+	};
 }

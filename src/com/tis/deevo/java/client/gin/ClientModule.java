@@ -1,5 +1,6 @@
 package com.tis.deevo.java.client.gin;
 
+import com.gwtplatform.dispatch.shared.SecurityCookie;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 import com.gwtplatform.mvp.client.gin.DefaultModule;
 import com.tis.deevo.java.client.place.ClientPlaceManager;
@@ -32,6 +33,8 @@ public class ClientModule extends AbstractPresenterModule {
 		bindPresenter(FirstPresenter.class, FirstPresenter.MyView.class,
 				FirstView.class, FirstPresenter.MyProxy.class);
 
+		bindConstant().annotatedWith(SecurityCookie.class).to("MY COOKIE");
+		
 		bindConstant().annotatedWith(DefaultPlace.class).to(NameTokens.first);
 
 

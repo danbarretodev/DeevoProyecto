@@ -35,6 +35,8 @@ public class ClientPlaceManager extends PlaceManagerImpl {
 	@Override
 	public void revealUnauthorizedPlace(String unauthorizedHistoryToken) {
 		// TODO Auto-generated method stub
+		
+		PlaceRequest current = getCurrentPlaceRequest();
 		PlaceRequest request = new PlaceRequest(NameTokens.login);
 		revealPlace(request);
 		//super.revealUnauthorizedPlace(unauthorizedHistoryToken);
