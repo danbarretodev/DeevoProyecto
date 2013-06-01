@@ -37,14 +37,11 @@ public class ClientModule extends AbstractPresenterModule {
 		
 		bindConstant().annotatedWith(DefaultPlace.class).to(NameTokens.first);
 
-
 		bindPresenter(SecondPresenter.class, SecondPresenter.MyView.class,
 				SecondView.class, SecondPresenter.MyProxy.class);
 
 		bindPresenter(HeaderPresenter.class, HeaderPresenter.MyView.class,
 				HeaderView.class, HeaderPresenter.MyProxy.class);
-
-
 
 		bindPresenter(ThirdPresenter.class, ThirdPresenter.MyView.class,
 				ThirdView.class, ThirdPresenter.MyProxy.class);

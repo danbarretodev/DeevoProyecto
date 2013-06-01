@@ -8,6 +8,7 @@ import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.tis.deevo.java.client.place.NameTokens;
+import com.gwtplatform.mvp.client.proxy.ManualRevealCallback;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
@@ -51,6 +52,24 @@ public class FirstPresenter extends
 		//RevealRootContentEvent.fire(this, this);
 	}
 	
+	@Override
+	public boolean useManualReveal() {
+		return true;
+	}
+	@Override
+	public void prepareFromRequest(PlaceRequest request) {
+		super.prepareFromRequest(request);
+		GetData action = new GetData();
+		dispatchAsync.execute(action, getDataCallback);
+	}
+	private AsyncCallback<GetDataResult> getDataCallback = ManualRevealCallback.create(this,new AsyncCallback<GetDataResult>() {
+		
+		public void onFailure(Throwable caught) {};
+		
+		public void onSuccess(GetDataResult result) {
+			getView().getFirstbox().setText(result.getData());
+		};
+	});
 	@Inject PlaceManager placemanager;
 	
 	@Inject RatePagePresenter ratepagepresenter;
@@ -67,7 +86,6 @@ public class FirstPresenter extends
 		super.onReset();
 		
 		setInSlot(SLOT_rate, ratepagepresenter);
-		getView().getFirstbox().setText("First Text");
 		getView().getFirstboton().addClickHandler(new ClickHandler() {
 			
 			@Override
