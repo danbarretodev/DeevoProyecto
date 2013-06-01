@@ -16,6 +16,6 @@ public class DispatchServletModule extends ServletModule {
 
 		bindConstant().annotatedWith(SecurityCookie.class).to("MYCOOKIE");
 		
-		filter("*.html").through(HttpSessionSecurityCookieFilter.class);
+		filter("*").through(HttpSessionSecurityCookieFilter.class);
 	}
 }
