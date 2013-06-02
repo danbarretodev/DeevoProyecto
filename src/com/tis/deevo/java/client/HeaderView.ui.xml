@@ -7,7 +7,7 @@
 	ui:generateLocales='default'>
 
 	<g:HTMLPanel ui:field="contentpanel" styleName="header">
-		<r1> DEEVO Place EXAMPLE GIT IVAN</r1>
+		<r1> DEEVO Place EXAMPLE MERGE</r1>
 		<g:Label  ui:field="labelfeliz"  text="Bienvenido" width="79px"/>
 		<hr/>
 		
