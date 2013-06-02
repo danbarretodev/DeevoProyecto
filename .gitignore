@@ -21,7 +21,8 @@ war/WEB-INF/deploy/
 war/WEB-INF/classes/
 war/deevoproyecto/*.rpc
 
-
+.classpath
+.settings/
 unit/
 
 
