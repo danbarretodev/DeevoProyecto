@@ -7,4 +7,8 @@ public class GetData extends ActionImpl<GetDataResult> {
 
 	public GetData() {
 	}
+	@Override
+	public boolean isSecured() {
+		return false;
+		}
 }

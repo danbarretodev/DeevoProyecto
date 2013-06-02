@@ -7,6 +7,7 @@ public class GetDataResult implements Result {
 
 	private String data;
 
+	
 	@SuppressWarnings("unused")
 	private GetDataResult() {
 		// For serialization only

@@ -14,16 +14,18 @@ public class GetDataActionHandler implements
 	public GetDataActionHandler() {
 	}
 
+	
 	@Override
 	public GetDataResult execute(GetData action, ExecutionContext context)
 			throws ActionException {
 		try {
-			Thread.sleep(20000);
+			Thread.sleep(500);
 		} catch (InterruptedException e) {
 		}
 		return new GetDataResult("Some Data =P");
 	}
 
+	
 	@Override
 	public void undo(GetData action, GetDataResult result, ExecutionContext context)
 			throws ActionException {
