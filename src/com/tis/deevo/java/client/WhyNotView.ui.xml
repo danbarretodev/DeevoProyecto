@@ -6,7 +6,7 @@
 	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
 	ui:generateLocales='default'>
 
-	<g:PopupPanel height="200" modal="true" autoHideEnabled="true">
+	<g:PopupPanel height="200" modal="true" autoHideEnabled="true" glassEnabled="true">
 		<g:HTMLPanel width="198px" height="151px">
 			<B> No me cierres </B>
 			<g:Button width="68px" ui:field="okbu">OK..</g:Button>
