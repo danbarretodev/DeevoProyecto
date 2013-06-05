@@ -1,12 +1,12 @@
 package com.tis.deevo.java.server;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import org.mortbay.log.Log;
-
 import com.gwtplatform.dispatch.server.actionhandler.ActionHandler;
-import com.tis.deevo.java.client.GetDataResult;
 import com.tis.deevo.java.client.GetFirst;
 import com.tis.deevo.java.client.GetFirstResult;
 import com.google.inject.Inject;
@@ -26,25 +26,47 @@ public class GetFirstActionHandler implements
 			throws ActionException {
 		
 		EntityManager em = EMF.get().createEntityManager();
-		
+		EntityTransaction tx = em.getTransaction();
 
-		Persona persona=null;
-		
+		//Persona persona =new Persona();
+		Persona per=new Persona();
+	    //persona.setPer_dni("12345679");
+		String id="12345679";
+	    //persona.setPer_nom("IEEEVAN!!");
+		//persona.setPer_nac(get);
 		try {
-		           		            
-		            persona=em.find(Persona.class,null);
+					//tx.begin();
+					//em.persist(persona);
+					//persona = em.find(Persona.class, id);
+					//tx.commit();
+					//persona.setPer_nom("IEEEVAN!!!");
+					//tx.begin();
+		            //em.merge(persona);
+		            per = em.find(Persona.class,id);
+		            //tx.commit();
 		        } catch (Exception e) {
-		        
+		        	Logger log = Logger.getLogger("ERROR PERSIST");
+		            log.log(Level.WARNING, "Rolling Back:", e);
+		            tx.rollback();
 		        
 		        } finally {
-		            
+		            em.close();
 		        }
 
-		String nombre=persona.getPer_nom();
-
+		String nombre=per.getPer_nom();
+		nombre = verifica(nombre);
 		
 
 		return new GetFirstResult(nombre);
+	}
+
+	private String verifica(String nom) {
+		
+		if(nom == null){
+			nom="FAAAAAIL";
+		}
+		// TODO Auto-generated method stub
+		return nom;
 	}
 
 	@Override

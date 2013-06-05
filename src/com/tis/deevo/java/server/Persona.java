@@ -6,27 +6,26 @@ import java.lang.String;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import static javax.persistence.TemporalType.DATE;
 
 @Entity
 @Table(name = "PERSONA")
 public class Persona implements Serializable {
-
 	private static final long serialVersionUID = -8862996895049502867L;
+	@Column(name = "per_dni")
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String per_dni;
 	
 	private String per_nom;
 	private Integer per_telf;
-	@Temporal(TemporalType.DATE)
+	@Temporal(DATE)
 	private Date per_nac;
+	
+	//private DateFormat format;
 	
 	private Integer per_cel;
 	private String per_estc;
@@ -51,7 +50,7 @@ public class Persona implements Serializable {
 	}
 
 	public void setPer_nac(Date per_nac) {
-		this.per_nac = per_nac;
+			this.per_nac=per_nac;
 	}
 
 	public void setPer_cel(Integer per_cel) {
