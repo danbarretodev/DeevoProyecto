@@ -1,5 +1,8 @@
 package com.tis.deevo.java.server;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
 import com.gwtplatform.dispatch.server.actionhandler.ActionHandler;
 import com.tis.deevo.java.client.GetData;
 import com.tis.deevo.java.client.GetDataResult;
@@ -18,11 +21,9 @@ public class GetDataActionHandler implements
 	@Override
 	public GetDataResult execute(GetData action, ExecutionContext context)
 			throws ActionException {
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-		}
-		return new GetDataResult("Some Data =P");
+		
+		
+		return new GetDataResult("nombre");
 	}
 
 	

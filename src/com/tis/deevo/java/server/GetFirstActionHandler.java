@@ -1,6 +1,12 @@
 package com.tis.deevo.java.server;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
+import org.mortbay.log.Log;
+
 import com.gwtplatform.dispatch.server.actionhandler.ActionHandler;
+import com.tis.deevo.java.client.GetDataResult;
 import com.tis.deevo.java.client.GetFirst;
 import com.tis.deevo.java.client.GetFirstResult;
 import com.google.inject.Inject;
@@ -18,9 +24,27 @@ public class GetFirstActionHandler implements
 	public GetFirstResult execute(GetFirst action, ExecutionContext context)
 			
 			throws ActionException {
-		String text = action.getText();
-		text = text.toLowerCase();
-		return new GetFirstResult(text);
+		
+		EntityManager em = EMF.get().createEntityManager();
+		
+
+		Persona persona=null;
+		
+		try {
+		           		            
+		            persona=em.find(Persona.class,null);
+		        } catch (Exception e) {
+		        
+		        
+		        } finally {
+		            
+		        }
+
+		String nombre=persona.getPer_nom();
+
+		
+
+		return new GetFirstResult(nombre);
 	}
 
 	@Override
